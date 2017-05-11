@@ -11,7 +11,7 @@
 #import "GiftViewCell.h"
 
 #define HeightOfCell        44.0
-#define WidthOfView         100.0
+#define WidthOfView         120.0
 #define NumberOfRow         3 //_dataArray实例化时减1个，礼物从最后面插入。
 
 @interface GiftTableView() <UITableViewDelegate, UITableViewDataSource> {
@@ -56,12 +56,14 @@
         
         [self scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
     } endBlock:^{
-        NSNumber *obj = [NSNumber numberWithInteger:x];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_dataArray indexOfObject:obj] inSection:0];
-        [_dataArray removeObjectAtIndex:[_dataArray indexOfObject:obj]];
-        [self beginUpdates];
-        [self deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        [self endUpdates];
+        if (_opQueue.operationCount > 3) {// 预防反向滚动，当没有更多礼物了，就可以保留着先
+            NSNumber *obj = [NSNumber numberWithInteger:x];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_dataArray indexOfObject:obj] inSection:0];
+            [_dataArray removeObjectAtIndex:[_dataArray indexOfObject:obj]];
+            [self beginUpdates];
+            [self deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [self endUpdates];
+        }
     }];
     [_opQueue addOperation:operation];
 }

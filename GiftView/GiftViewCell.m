@@ -20,7 +20,7 @@ static NSTimeInterval hideTime = 0.28;
     }
     _duration = duration;
     
-    self.textLabel.text = [NSString stringWithFormat:@"礼物：%@", object];
+    self.textLabel.text = [NSString stringWithFormat:@"礼物：%@秒", object];
     [self show];
 }
 
