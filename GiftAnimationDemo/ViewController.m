@@ -24,7 +24,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     giftView = [[GiftTableView alloc]init];
-    giftView.backgroundColor = [UIColor redColor];
+//    giftView.backgroundColor = [UIColor redColor];
     [self.view addSubview:giftView];
     giftView.makeBottom = self.view.makeBottom - 49;
 }
@@ -37,12 +37,15 @@
 
 - (IBAction)action:(id)sender {
     static int i = 0;
-//    NSObject *[NSString stringWithFormat:@"%d", i++]
-    [giftView addGiftObject:[NSString stringWithFormat:@"%d", i++]];
+    
+    GiftModel *model = [GiftModel new];
+    model.Id = [NSNumber numberWithInteger:i];
+    model.UserName = @"土豪们";
+    model.GiftName = @"送出代码段";
+    model.Count = arc4random() % 5 + 1;// 随机数
+    
+    [giftView addGiftModel:model];
 }
 
-- (IBAction)delete:(id)sender {
-
-}
 
 @end

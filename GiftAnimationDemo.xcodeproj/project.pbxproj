@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		803675CA1EC56C9A0029EE96 /* GiftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 803675C81EC56C9A0029EE96 /* GiftViewCell.m */; };
+		803675CB1EC56C9A0029EE96 /* GiftViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 803675C91EC56C9A0029EE96 /* GiftViewCell.xib */; };
+		803675CE1EC56CDE0029EE96 /* GiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 803675CD1EC56CDE0029EE96 /* GiftModel.m */; };
 		80E1133A1EC435F900CA2D44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E113391EC435F900CA2D44 /* main.m */; };
 		80E1133D1EC435F900CA2D44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E1133C1EC435F900CA2D44 /* AppDelegate.m */; };
 		80E113401EC435F900CA2D44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E1133F1EC435F900CA2D44 /* ViewController.m */; };
@@ -14,12 +17,17 @@
 		80E113451EC435F900CA2D44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E113441EC435F900CA2D44 /* Assets.xcassets */; };
 		80E113481EC435F900CA2D44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E113461EC435F900CA2D44 /* LaunchScreen.storyboard */; };
 		80E113521EC4382600CA2D44 /* GiftTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E113511EC4382600CA2D44 /* GiftTableView.m */; };
-		80E113551EC439BE00CA2D44 /* GiftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E113541EC439BE00CA2D44 /* GiftViewCell.m */; };
 		80E113581EC43A1300CA2D44 /* UIView+CKFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E113571EC43A1300CA2D44 /* UIView+CKFrame.m */; };
 		80E1135B1EC4412E00CA2D44 /* GiftOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E1135A1EC4412E00CA2D44 /* GiftOperation.m */; };
+		80F9BE151EC59AC4004E23B7 /* guitar.png in Resources */ = {isa = PBXBuildFile; fileRef = 80F9BE141EC59AC4004E23B7 /* guitar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		803675C71EC56C9A0029EE96 /* GiftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftViewCell.h; sourceTree = "<group>"; };
+		803675C81EC56C9A0029EE96 /* GiftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftViewCell.m; sourceTree = "<group>"; };
+		803675C91EC56C9A0029EE96 /* GiftViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftViewCell.xib; sourceTree = "<group>"; };
+		803675CC1EC56CDE0029EE96 /* GiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftModel.h; sourceTree = "<group>"; };
+		803675CD1EC56CDE0029EE96 /* GiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftModel.m; sourceTree = "<group>"; };
 		80E113351EC435F900CA2D44 /* GiftAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E113391EC435F900CA2D44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		80E1133B1EC435F900CA2D44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,12 +40,11 @@
 		80E113491EC435F900CA2D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80E113501EC4382600CA2D44 /* GiftTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftTableView.h; sourceTree = "<group>"; };
 		80E113511EC4382600CA2D44 /* GiftTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftTableView.m; sourceTree = "<group>"; };
-		80E113531EC439BE00CA2D44 /* GiftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftViewCell.h; sourceTree = "<group>"; };
-		80E113541EC439BE00CA2D44 /* GiftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftViewCell.m; sourceTree = "<group>"; };
 		80E113561EC43A1300CA2D44 /* UIView+CKFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CKFrame.h"; sourceTree = "<group>"; };
 		80E113571EC43A1300CA2D44 /* UIView+CKFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CKFrame.m"; sourceTree = "<group>"; };
 		80E113591EC4412E00CA2D44 /* GiftOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftOperation.h; sourceTree = "<group>"; };
 		80E1135A1EC4412E00CA2D44 /* GiftOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftOperation.m; sourceTree = "<group>"; };
+		80F9BE141EC59AC4004E23B7 /* guitar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guitar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +61,7 @@
 		80E1132C1EC435F900CA2D44 = {
 			isa = PBXGroup;
 			children = (
+				80F9BE141EC59AC4004E23B7 /* guitar.png */,
 				80E113561EC43A1300CA2D44 /* UIView+CKFrame.h */,
 				80E113571EC43A1300CA2D44 /* UIView+CKFrame.m */,
 				80E1134F1EC437D000CA2D44 /* GiftView */,
@@ -99,10 +107,13 @@
 			children = (
 				80E113501EC4382600CA2D44 /* GiftTableView.h */,
 				80E113511EC4382600CA2D44 /* GiftTableView.m */,
-				80E113531EC439BE00CA2D44 /* GiftViewCell.h */,
-				80E113541EC439BE00CA2D44 /* GiftViewCell.m */,
+				803675CC1EC56CDE0029EE96 /* GiftModel.h */,
+				803675CD1EC56CDE0029EE96 /* GiftModel.m */,
 				80E113591EC4412E00CA2D44 /* GiftOperation.h */,
 				80E1135A1EC4412E00CA2D44 /* GiftOperation.m */,
+				803675C71EC56C9A0029EE96 /* GiftViewCell.h */,
+				803675C81EC56C9A0029EE96 /* GiftViewCell.m */,
+				803675C91EC56C9A0029EE96 /* GiftViewCell.xib */,
 			);
 			path = GiftView;
 			sourceTree = "<group>";
@@ -166,8 +177,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80F9BE151EC59AC4004E23B7 /* guitar.png in Resources */,
 				80E113481EC435F900CA2D44 /* LaunchScreen.storyboard in Resources */,
 				80E113451EC435F900CA2D44 /* Assets.xcassets in Resources */,
+				803675CB1EC56C9A0029EE96 /* GiftViewCell.xib in Resources */,
 				80E113431EC435F900CA2D44 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,11 +193,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				80E113401EC435F900CA2D44 /* ViewController.m in Sources */,
+				803675CE1EC56CDE0029EE96 /* GiftModel.m in Sources */,
+				803675CA1EC56C9A0029EE96 /* GiftViewCell.m in Sources */,
 				80E1133D1EC435F900CA2D44 /* AppDelegate.m in Sources */,
 				80E1135B1EC4412E00CA2D44 /* GiftOperation.m in Sources */,
 				80E113581EC43A1300CA2D44 /* UIView+CKFrame.m in Sources */,
 				80E1133A1EC435F900CA2D44 /* main.m in Sources */,
-				80E113551EC439BE00CA2D44 /* GiftViewCell.m in Sources */,
 				80E113521EC4382600CA2D44 /* GiftTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +362,7 @@
 				80E1134E1EC435FA00CA2D44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

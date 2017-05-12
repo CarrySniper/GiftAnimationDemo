@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GiftViewCell.h"
 
 @interface GiftTableView : UITableView
 
 /**
  为队列添加礼物展示
 
- @param object 礼物对象，可以修改成自己需要的类型
+ @param model 礼物对象，可以修改成自己需要的类型
  */
-- (void)addGiftObject:(NSObject *)object;
+- (void)addGiftModel:(GiftModel *)model;
 
 @end

@@ -2,35 +2,36 @@
 //  GiftViewCell.m
 //  GiftAnimationDemo
 //
-//  Created by BmMac on 2017/5/11.
+//  Created by BmMac on 2017/5/12.
 //  Copyright © 2017年 IBEIMEN. All rights reserved.
 //
 
 #import "GiftViewCell.h"
-#import "UIView+CKFrame.h"
 
 @implementation GiftViewCell
 
-static NSTimeInterval showTime = 0.28;
-static NSTimeInterval hideTime = 0.28;
-- (void)animateWithDuration:(NSTimeInterval)duration giftObject:(NSObject *)object
+- (void)setObject:(NSObject *)object
 {
-    if ([object isKindOfClass:[NSNull class]]) {
+    if (![object isKindOfClass:[GiftModel class]]) {
+        self.contentView.hidden = YES;
         return;
     }
-    _duration = duration;
+    self.contentView.hidden = NO;
+    // 规则：数字增长间隔 animateTime 秒
+    // 基础时间1秒
+    GiftModel *model = (GiftModel *)object;
+    _duration = 1.0 + model.Count * animateTime;
     
-    self.textLabel.text = [NSString stringWithFormat:@"礼物：%@秒", object];
-    [self show];
-}
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        
+    _userAvatar.backgroundColor = [UIColor whiteColor];
+    
+    if (model.UserName) {
+        _username.text = model.UserName;
     }
-    return self;
+    if (model.GiftName) {
+        _giftName.text = model.GiftName;
+    }
+    
+    [self show];
 }
 
 - (void)show
@@ -42,13 +43,13 @@ static NSTimeInterval hideTime = 0.28;
     [self setNeedsLayout];
     
     [UIView animateWithDuration:showTime
-                          delay:0.0
+                          delay:showTime
                         options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.contentView.alpha = 1.0;
-        self.contentView.makeLeft = 0;
-    } completion:^(BOOL finished) {
-        [self performSelector:@selector(hide) withObject:nil afterDelay:_duration-showTime-hideTime];
-    }];
+                            self.contentView.alpha = 1.0;
+                            self.contentView.makeLeft = 0;
+                        } completion:^(BOOL finished) {
+                            [self performSelector:@selector(hide) withObject:nil afterDelay:_duration-showTime*2-hideTime];
+                        }];
 }
 
 - (void)hide
