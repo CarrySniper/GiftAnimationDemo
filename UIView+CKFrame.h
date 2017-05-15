@@ -1,9 +1,8 @@
 //
-//  UIView+CKFrame.h
-//  SJToolKit
+//  GiftAnimationDemo
 //
-//  Created by 思久科技 on 2017/2/15.
-//  Copyright © 2017年 Seejoys. All rights reserved.
+//  Created by BmMac on 2017/5/11.
+//  Copyright © 2017年 IBEIMEN. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

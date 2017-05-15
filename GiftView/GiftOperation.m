@@ -35,6 +35,7 @@
 
 - (void)start
 {
+    __weak typeof(self) weakSelf = self;
     if ([self isCancelled]) {
         _finished = YES;
         return;
@@ -42,12 +43,11 @@
         _executing = YES;
         //start your task;
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            self.startBlock();
+            weakSelf.startBlock();
             // 一次性，一条记录累计，不能多条记录累计。
-            dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.duration/*延迟执行时间*/ * NSEC_PER_SEC));
-            dispatch_after(delayTime, dispatch_get_main_queue(), ^{
-                self.finished = YES;
-                self.endBlock();
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(weakSelf.duration/*延迟执行时间*/ * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                weakSelf.endBlock();
+                weakSelf.finished = YES;
             });
         }];
         //end your task

@@ -11,18 +11,17 @@
 
 #define HeightOfCell        50.0
 #define WidthOfView         160.0
-#define NumberOfRow         3 //_dataArray实例化时减1个，礼物从最后面插入。
+#define NumberOfRow         5 //_dataArray实例化时减1个，礼物从最后面插入。
 
 @interface GiftTableView() <UITableViewDelegate, UITableViewDataSource> {
-   
-    NSMutableArray *_dataArray;
-    NSOperationQueue *_opQueue;
+    __block NSOperationQueue *_opQueue;
 }
 
 @end
 
 @implementation GiftTableView
 
+#pragma mark 初始化
 - (instancetype)init
 {
     CGRect rect = CGRectMake(0, 0, WidthOfView, HeightOfCell * NumberOfRow);
@@ -30,6 +29,7 @@
     if (self) {
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.userInteractionEnabled = NO;
+        self.clipsToBounds = NO;
         self.backgroundColor = [UIColor clearColor];
         self.dataSource = self;
         self.delegate = self;
@@ -48,32 +48,41 @@
     return self;
 }
 
+#pragma mark 为队列添加礼物展示
 - (void)addGiftModel:(GiftModel *)model
 {
-    // 时间计算和礼物动画时间有关
-    // 规则：数字增长间隔 animateTime 秒
-    // 基础时间1秒+scrollToRow给个0.5秒=1.5
-    NSTimeInterval duration = 1.5 + model.Count * animateTime;
-    
+    __weak typeof(self) weakSelf = self;
+    // 动画时间，要和cell有个同步时间
+    NSTimeInterval duration = [model totalTime];
     GiftOperation *operation = [GiftOperation animateWithDuration:duration startBlock:^{
         [_dataArray addObject:model];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_dataArray.count-1 inSection:0];
-        [self beginUpdates];
-        [self insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        [self endUpdates];
+        [weakSelf beginUpdates];
+        [weakSelf insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [weakSelf endUpdates];
         
-        [self scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+        [weakSelf scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
+        
     } endBlock:^{
-        if (_opQueue.operationCount > 3) {// 预防反向滚动，当没有更多礼物了，就可以保留着先
+        if (_dataArray.count > NumberOfRow - 1) {// 预防反向滚动，当没有更多礼物了，就可以保留着先
             NSInteger row = [_dataArray indexOfObject:model];
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
             [_dataArray removeObjectAtIndex:row];
-            [self beginUpdates];
-            [self deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-            [self endUpdates];
+            [weakSelf beginUpdates];
+            [weakSelf deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [weakSelf endUpdates];
+        }
+        // block 礼物数量
+        if (weakSelf.countBlock) {
+            weakSelf.countBlock(_opQueue.operationCount-1);
         }
     }];
     [_opQueue addOperation:operation];
+    
+    // block 礼物数量
+    if (weakSelf.countBlock) {
+        weakSelf.countBlock(_opQueue.operationCount);
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -86,7 +95,7 @@
 {
     GiftViewCell *cell = (GiftViewCell *)[tableView dequeueReusableCellWithIdentifier:@"GiftViewCell"];
 
-    [cell setObject:_dataArray[indexPath.row]];
+    [cell setGiftObject:_dataArray[indexPath.row]];
     
     return cell;
 }

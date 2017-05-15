@@ -10,32 +10,34 @@
 
 @implementation GiftViewCell
 
-- (void)setObject:(NSObject *)object
+#pragma mark 设置数据对象，如果是GiftModel则显示
+- (void)setGiftObject:(NSObject *)object
 {
     if (![object isKindOfClass:[GiftModel class]]) {
         self.contentView.hidden = YES;
         return;
     }
     self.contentView.hidden = NO;
-    // 规则：数字增长间隔 animateTime 秒
-    // 基础时间1秒
-    GiftModel *model = (GiftModel *)object;
-    _duration = 1.0 + model.Count * animateTime;
+    _giftModel = (GiftModel *)object;
     
     _userAvatar.backgroundColor = [UIColor whiteColor];
     
-    if (model.UserName) {
-        _username.text = model.UserName;
+    if (_giftModel.UserName) {
+        _username.text = _giftModel.UserName;
     }
-    if (model.GiftName) {
-        _giftName.text = model.GiftName;
+    if (_giftModel.GiftName) {
+        _giftName.text = _giftModel.GiftName;
     }
-    
+    self.countNumber.text = @"x 0";
     [self show];
 }
 
+#pragma mark 显示动画
 - (void)show
 {
+    __weak typeof(self) weakSelf = self;
+    _duration = [_giftModel totalTime] - 0.5;
+    
     // 这句是有用的
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hide) object:nil];
     
@@ -43,19 +45,23 @@
     [self setNeedsLayout];
     
     [UIView animateWithDuration:showTime
-                          delay:showTime
-                        options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                            self.contentView.alpha = 1.0;
-                            self.contentView.makeLeft = 0;
+                          delay:delayTime
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                            weakSelf.contentView.alpha = 1.0;
+                            weakSelf.contentView.makeLeft = 0;
                         } completion:^(BOOL finished) {
-                            [self performSelector:@selector(hide) withObject:nil afterDelay:_duration-showTime*2-hideTime];
+                            [weakSelf.countNumber countAccumulation:animateTime totalNumber:_giftModel.Count];
+                            [weakSelf performSelector:@selector(hide) withObject:nil afterDelay:_duration-hideTime];
                         }];
 }
 
+#pragma mark 隐藏动画
 - (void)hide
 {
+    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:hideTime animations:^{
-        self.contentView.alpha = 0.0;
+        weakSelf.contentView.alpha = 0.0;
     }];
 }
 

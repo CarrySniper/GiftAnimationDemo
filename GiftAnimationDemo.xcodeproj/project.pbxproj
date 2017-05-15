@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		801BBB121EC9453900009604 /* ShakeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 801BBB111EC9453900009604 /* ShakeLabel.m */; };
 		803675CA1EC56C9A0029EE96 /* GiftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 803675C81EC56C9A0029EE96 /* GiftViewCell.m */; };
 		803675CB1EC56C9A0029EE96 /* GiftViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 803675C91EC56C9A0029EE96 /* GiftViewCell.xib */; };
 		803675CE1EC56CDE0029EE96 /* GiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 803675CD1EC56CDE0029EE96 /* GiftModel.m */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		801BBB101EC9453900009604 /* ShakeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeLabel.h; sourceTree = "<group>"; };
+		801BBB111EC9453900009604 /* ShakeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeLabel.m; sourceTree = "<group>"; };
 		803675C71EC56C9A0029EE96 /* GiftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftViewCell.h; sourceTree = "<group>"; };
 		803675C81EC56C9A0029EE96 /* GiftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftViewCell.m; sourceTree = "<group>"; };
 		803675C91EC56C9A0029EE96 /* GiftViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftViewCell.xib; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				80F9BE141EC59AC4004E23B7 /* guitar.png */,
+				801BBB101EC9453900009604 /* ShakeLabel.h */,
+				801BBB111EC9453900009604 /* ShakeLabel.m */,
 				80E113561EC43A1300CA2D44 /* UIView+CKFrame.h */,
 				80E113571EC43A1300CA2D44 /* UIView+CKFrame.m */,
 				80E1134F1EC437D000CA2D44 /* GiftView */,
@@ -107,10 +112,10 @@
 			children = (
 				80E113501EC4382600CA2D44 /* GiftTableView.h */,
 				80E113511EC4382600CA2D44 /* GiftTableView.m */,
-				803675CC1EC56CDE0029EE96 /* GiftModel.h */,
-				803675CD1EC56CDE0029EE96 /* GiftModel.m */,
 				80E113591EC4412E00CA2D44 /* GiftOperation.h */,
 				80E1135A1EC4412E00CA2D44 /* GiftOperation.m */,
+				803675CC1EC56CDE0029EE96 /* GiftModel.h */,
+				803675CD1EC56CDE0029EE96 /* GiftModel.m */,
 				803675C71EC56C9A0029EE96 /* GiftViewCell.h */,
 				803675C81EC56C9A0029EE96 /* GiftViewCell.m */,
 				803675C91EC56C9A0029EE96 /* GiftViewCell.xib */,
@@ -192,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801BBB121EC9453900009604 /* ShakeLabel.m in Sources */,
 				80E113401EC435F900CA2D44 /* ViewController.m in Sources */,
 				803675CE1EC56CDE0029EE96 /* GiftModel.m in Sources */,
 				803675CA1EC56C9A0029EE96 /* GiftViewCell.m in Sources */,

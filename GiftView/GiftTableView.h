@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "GiftViewCell.h"
 
+typedef void (^OPIntegerBlock)(NSUInteger number);
+
 @interface GiftTableView : UITableView
+
+// 列表数据
+@property (nonatomic, strong) NSMutableArray *dataArray;
+// 礼物数量block
+@property (nonatomic, copy) OPIntegerBlock countBlock;
 
 /**
  为队列添加礼物展示

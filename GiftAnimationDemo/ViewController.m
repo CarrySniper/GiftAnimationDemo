@@ -10,10 +10,14 @@
 #import "UIView+CKFrame.h"
 #import "GiftTableView.h"
 
+
+#import "ShakeLabel.h"
+
 @interface ViewController () {
     GiftTableView *giftView;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 
 @end
 
@@ -23,10 +27,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    /*
+        weakSelf需要自己管理，这里是分开使用，避免缺少引用
+     */    
+    
+    __weak typeof(self) weakSelf = self;
     giftView = [[GiftTableView alloc]init];
-//    giftView.backgroundColor = [UIColor redColor];
     [self.view addSubview:giftView];
     giftView.makeBottom = self.view.makeBottom - 49;
+    giftView.countBlock = ^(NSUInteger number) {
+        weakSelf.numberLabel.text = [NSString stringWithFormat:@"礼物个数：%ld", number];
+    };
 }
 
 
@@ -36,16 +47,21 @@
 }
 
 - (IBAction)action:(id)sender {
+    
     static int i = 0;
     
     GiftModel *model = [GiftModel new];
     model.Id = [NSNumber numberWithInteger:i];
     model.UserName = @"土豪们";
     model.GiftName = @"送出代码段";
-    model.Count = arc4random() % 5 + 1;// 随机数
+    model.Count = arc4random() % 3344 + 1;// 随机数
     
     [giftView addGiftModel:model];
 }
 
+- (void)hide
+{
+    NSLog(@"cccc-%@", [NSDate date]);
+}
 
 @end
