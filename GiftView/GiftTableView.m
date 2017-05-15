@@ -40,7 +40,10 @@
         // 代码注册
         //[self registerClass:[GiftViewCell class] forCellReuseIdentifier:@"GiftViewCell"];
         
-        _dataArray = [NSMutableArray arrayWithObjects:[NSNull null], [NSNull null], nil];
+        _dataArray = [NSMutableArray array];
+        for (int i = 1; i < NumberOfRow; i++) {
+            [_dataArray addObject:[NSNull null]];
+        }
         
         _opQueue = [[NSOperationQueue alloc] init];
         _opQueue.maxConcurrentOperationCount = NumberOfRow; // 最大并发量
