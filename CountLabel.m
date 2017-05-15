@@ -1,8 +1,8 @@
 
 
-#import "ShakeLabel.h"
+#import "CountLabel.h"
 
-@implementation ShakeLabel
+@implementation CountLabel
 
 - (void)countAccumulation:(NSTimeInterval)duration totalNumber:(NSUInteger)totalNumber
 {

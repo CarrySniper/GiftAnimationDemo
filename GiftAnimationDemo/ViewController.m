@@ -11,8 +11,6 @@
 #import "GiftTableView.h"
 
 
-#import "ShakeLabel.h"
-
 @interface ViewController () {
     GiftTableView *giftView;
 }
@@ -36,7 +34,7 @@
     [self.view addSubview:giftView];
     giftView.makeBottom = self.view.makeBottom - 49;
     giftView.countBlock = ^(NSUInteger number) {
-        weakSelf.numberLabel.text = [NSString stringWithFormat:@"礼物个数：%ld", number];
+        weakSelf.numberLabel.text = [NSString stringWithFormat:@"礼物队列：%ld", number];
     };
 }
 
@@ -54,7 +52,7 @@
     model.Id = [NSNumber numberWithInteger:i];
     model.UserName = @"土豪们";
     model.GiftName = @"送出代码段";
-    model.Count = arc4random() % 3344 + 1;// 随机数
+    model.Count = arc4random() % 100 + 1;// 随机数
     
     [giftView addGiftModel:model];
 }

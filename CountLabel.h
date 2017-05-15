@@ -2,7 +2,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShakeLabel : UILabel
+@interface CountLabel : UILabel
 
 - (void)countAccumulation:(NSTimeInterval)duration totalNumber:(NSUInteger)totalNumber;
 

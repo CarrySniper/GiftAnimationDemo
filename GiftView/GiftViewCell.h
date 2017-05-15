@@ -10,7 +10,7 @@
 #import "UIView+CKFrame.h"
 #import "GiftModel.h"
 
-#import "ShakeLabel.h"
+#import "CountLabel.h"
 
 @interface GiftViewCell : UITableViewCell {
     NSTimeInterval _duration;
@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *username;         // 用户名称
 @property (weak, nonatomic) IBOutlet UILabel *giftName;         // 礼物名称
 
-@property (weak, nonatomic) IBOutlet ShakeLabel *countNumber;   // 礼物数量，这个可以自定义连击效果 ShakeLabel是参考他人的
+@property (weak, nonatomic) IBOutlet CountLabel *countNumber;   // 礼物数量，这个可以自定义连击效果 ShakeLabel是参考他人的
 
 /**
  设置数据对象，如果是GiftModel则显示
