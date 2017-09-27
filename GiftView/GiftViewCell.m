@@ -62,6 +62,7 @@
     __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:hideTime animations:^{
         weakSelf.contentView.alpha = 0.0;
+        weakSelf.contentView.makeLeft = 100;
     }];
 }
 

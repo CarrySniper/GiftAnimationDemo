@@ -46,11 +46,11 @@
 
 - (IBAction)action:(id)sender {
     
-    static int i = 0;
+    int i = arc4random() % 10;
     
     GiftModel *model = [GiftModel new];
     model.Id = [NSNumber numberWithInteger:i];
-    model.UserName = @"土豪们";
+    model.UserName = [NSString stringWithFormat:@"土豪%@", model.Id];
     model.GiftName = @"送出代码段";
     model.Count = arc4random() % 100 + 1;// 随机数
     
